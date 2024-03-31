@@ -57,16 +57,19 @@ const SalaryCalculator = ({
 
   useEffect(() => {
     setSelectedMemberPay(selectedMember.pay * (1 + sliderValue / 100));
-    setDisplayBasePay(selectedMemberPay)        
+    setDisplayBasePay(Math.round(selectedMemberPay))        
    }, [sliderValue]);
-
+   const formatter = new Intl.NumberFormat('hu-HU', {
+    style: 'currency',
+    currency: 'HUF',
+  });
   
     return (
     <>
     <div className="w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-200 dark:border-gray-700 max-w-lg mx-auto lg:max-w-3xl xl:max-w-4xl">
     <h1 className="mb-4 text-l font-bold leading-none tracking-tight text-gray-900 md:text-xl lg:text-3xl dark:text-black text-left"><span className="text-blue-600 dark:text-blue-500">{selectedMember.name}</span> bérének kiszámítása</h1>
     <TextInputWithLabel label="Családtag neve" placeHolder={selectedMember.name} instruction="Add meg a családtagod nevét!" changingVal={false} onTextChange={handleNameInput}/>
-    <TextInputWithLabel label="Bruttó bér" placeHolder={displayBasePay} instruction="Add meg a bruttó béred!" onTextChange={handleBasePayInput} selectedMemberPay={selectedMemberPay} selectedMember={selectedMember} changingVal={true}/>
+    <TextInputWithLabel label="Bruttó bér" placeHolder={Math.round(displayBasePay)} instruction="Add meg a bruttó béred!" onTextChange={handleBasePayInput} selectedMemberPay={selectedMemberPay} selectedMember={selectedMember} changingVal={true}/>
     <WageSlider sliderValue={sliderValue} setSliderValue={setSliderValue}/>
     <ButtonChangerContainer  sliderValue={sliderValue} setSliderValue={setSliderValue}/>
     <div >

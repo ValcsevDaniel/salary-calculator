@@ -95,8 +95,8 @@ const HouseholdSalaryCalculator = () => {
         />
       </header>
       <main className="ml-2">
-      <div className="flex justify-center">
-        <div className="w-1/2">
+      <div className="flex flex-col lg:flex-row justify-center mb-2">
+        <div className="w-full lg:w-1/2">
         <SalaryCalculator selectedMember={selectedMember}
          familyMemberPay={familyMemberPay} 
          setFamilyMemberPay={setFamilyMemberPay} 
@@ -113,7 +113,7 @@ const HouseholdSalaryCalculator = () => {
          setNumberOfDiscountedDependants={setNumberOfDiscountedDependants}
          />
          </div>
-         <div className="w-1/2">
+         <div className="w-full lg:w-1/2 s:mt-5 flex justify-center" >
          <HouseholdSummary familyMemberPay={familyMemberPay}/>
          </div>
       </div>

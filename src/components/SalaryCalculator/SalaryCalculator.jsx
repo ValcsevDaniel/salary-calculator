@@ -59,10 +59,7 @@ const SalaryCalculator = ({
     setSelectedMemberPay(selectedMember.pay * (1 + sliderValue / 100));
     setDisplayBasePay(Math.round(selectedMemberPay))        
    }, [sliderValue]);
-   const formatter = new Intl.NumberFormat('hu-HU', {
-    style: 'currency',
-    currency: 'HUF',
-  });
+   
   
     return (
     <>

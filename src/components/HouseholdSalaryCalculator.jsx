@@ -7,8 +7,8 @@ import { useState , useEffect} from "react"
 const HouseholdSalaryCalculator = () => {
   
   let initialFamilyMembersPay = [
-    { name: "member1", pay: 10 , netPay : 7, id : 1},
-    { name: "member2", pay: 1 , netPay : 0 , id : 2},
+    { name: "Családtag 1", pay: 0 , netPay : 0, id : 1},
+    { name: "Családtag 2", pay: 0 , netPay : 0 , id : 2},
   ];
   
   const [familyMemberPay, setFamilyMemberPay] = useState(initialFamilyMembersPay);

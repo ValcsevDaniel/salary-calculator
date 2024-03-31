@@ -12,7 +12,7 @@ const FamilyMemberTabs = ({
    setNetValue}) => {
   function handlAddFamilyMember(){
     const idVal = familyMemberPay.length
-    setFamilyMemberPay([...familyMemberPay, {name : "nem member" , pay : 10, netPay : 7, id : idVal + 1}])
+    setFamilyMemberPay([...familyMemberPay, {name : "Új családtag" , pay : 10, netPay : 7, id : idVal + 1}])
   }
   
   

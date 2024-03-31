@@ -67,12 +67,12 @@ const HouseholdSalaryCalculator = () => {
     setNetValue(Math.round(selectedMemberPay - calculateTax(selectedMemberPay)));
     
   }, [checked25Under,checkedNewlyMarried,checkedIncomeTaxDiscount,checkedFamilyDiscount,selectedMemberPay])
-  const updateIncome = (id, value) => {
+  const updateIncome = (id, basePay, value) => {
     // Find the member with the given name in the initial family members array
     const updatedMembers = familyMemberPay.map(member => {
       // If the member's name matches, update the pay to the given value
       if (member.id === id) {
-        return { ...member, netPay: value };
+        return { ...member, pay: basePay, netPay: value };
       }
       return member;
     });
@@ -81,7 +81,7 @@ const HouseholdSalaryCalculator = () => {
     setFamilyMemberPay(updatedMembers);
   };
   useEffect(() =>{
-    updateIncome(selectedMember.id , netValue)
+    updateIncome(selectedMember.id , selectedMemberPay, netValue)
     console.log(familyMemberPay)
   }, [selectedMemberPay, netValue])
   return (

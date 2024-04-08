@@ -38,7 +38,7 @@ const SalaryCalculator = ({
     selectedMember.pay = basePay;
   }
   const handleNameInput = (text) => {
-    console.log(text)
+    
     // Find the member with the given name in the initial family members array
     const updatedMembers = familyMemberPay.map(member => {
       // If the member's name matches, update the pay to the given value

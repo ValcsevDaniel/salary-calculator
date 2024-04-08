@@ -29,7 +29,7 @@ const NumberInput = ({
     setNumberOfDiscountedDependants(numberOfDiscountedDependants - 1);
     } 
   };
-  console.log(hiddenStatus)
+  
   return (
     <div className={`${hiddenStatus  ? "hidden" : ""} relative flex items-center`}>
       <button

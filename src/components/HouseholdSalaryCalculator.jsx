@@ -82,7 +82,7 @@ const HouseholdSalaryCalculator = () => {
   };
   useEffect(() =>{
     updateIncome(selectedMember.id , selectedMemberPay, netValue)
-    console.log(familyMemberPay)
+    
   }, [selectedMemberPay, netValue])
   return (
     <>

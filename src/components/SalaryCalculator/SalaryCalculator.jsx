@@ -25,7 +25,9 @@ const SalaryCalculator = ({
    numberOfDiscountedDependants,
    setNumberOfDiscountedDependants,
    setFamilyMemberPay,
-   familyMemberPay
+   familyMemberPay,
+   isValidForMarriageDiscount,
+   setIsValidForMarriageDiscount
   }) => {
   const [sliderValue, setSliderValue] = useState(0);
   const [displayBasePay, setDisplayBasePay] = useState(selectedMember.pay);
@@ -86,7 +88,9 @@ const SalaryCalculator = ({
         numberOfDependants={numberOfDependants}
         numberOfDiscountedDependants={numberOfDiscountedDependants}
         setNumberOfDependants={setNumberOfDependants}
-        setNumberOfDiscountedDependants={setNumberOfDiscountedDependants}/>
+        setNumberOfDiscountedDependants={setNumberOfDiscountedDependants}
+        isValidForMarriageDiscount={isValidForMarriageDiscount}
+        setIsValidForMarriageDiscount={setIsValidForMarriageDiscount}/>
         <CalculatedWage netWage={netValue}/>
     </div>
     

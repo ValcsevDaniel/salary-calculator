@@ -19,8 +19,10 @@ const CheckboxContainer = ({  netValue,
     numberOfDependants,
     setNumberOfDependants,
     numberOfDiscountedDependants,
-    setNumberOfDiscountedDependants}) => {
-    
+    setNumberOfDiscountedDependants,
+    isValidForMarriageDiscount,
+    setIsValidForMarriageDiscount}) => {
+      
     
     const [hiddenStatusForDatepicker,setHiddenStatusForDatePicker] = useState(true);
     const [hiddenStatusForFamilyDiscount,setHiddenStatusForFamilyDiscount] = useState(true);
@@ -36,7 +38,9 @@ const CheckboxContainer = ({  netValue,
       <CheckboxDiscount text="25 év alatti SZJA mentesség" checked={checked25Under} setChecked={setChecked25Under}/>
       <div className="flex items-center"> 
         <CheckboxDiscount text="Friss házasok kedvezménye" checked={checkedNewlyMarried} setChecked={setCheckedNewlyMarried}/>
-        <DatepickerModal hiddenStatus={hiddenStatusForDatepicker}/> 
+        <DatepickerModal hiddenStatus={hiddenStatusForDatepicker}
+        isValidForMarriageDiscount={isValidForMarriageDiscount}
+        setIsValidForMarriageDiscount={setIsValidForMarriageDiscount}/> 
       </div>
       <CheckboxDiscount text="Személyi adókedvezmény" checked={checkedIncomeTaxDiscount} setChecked={setCheckedIncomeTaxDiscount}/>
       <CheckboxDiscount text="Családi kedvezmény" checked={checkedFamilyDiscount} setChecked={setCheckedFamilyDiscount}/>

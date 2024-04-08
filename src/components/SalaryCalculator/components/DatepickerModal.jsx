@@ -4,10 +4,10 @@ import TextInputWithLabel from './TextInputWithLabel';
 import ValidForNewMarriage from './ValidForNewMarriage';
 
 
-const DatepickerModal = ({hiddenStatus}) => {
+const DatepickerModal = ({hiddenStatus, isValidForMarriageDiscount, setIsValidForMarriageDiscount}) => {
     const [modalOpen, setModalOpen] = useState(false);
     const [selectedDate,setSelectedDate] = useState("1989/01/01");
-    const [isValid, setIsValid] = useState(false);
+    
     const [hiddenStatusForValidator, setHiddenStatusForValidator] = useState(true);
     
     const toggleModal = () => {
@@ -24,9 +24,9 @@ const DatepickerModal = ({hiddenStatus}) => {
        
 
         if (selectedDateObj >= twoYearsAgo && selectedDateObj <= currentDate) {
-            setIsValid(true);
+            setIsValidForMarriageDiscount(true);
         } else {
-            setIsValid(false);
+            setIsValidForMarriageDiscount(false);
         }
         toggleModal();
         toggleValidationFeedback();
@@ -35,7 +35,7 @@ const DatepickerModal = ({hiddenStatus}) => {
   return (
     <div>
     <button type="button" className={`${hiddenStatus ? "hidden" : ""} top-0 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-0.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 ml-2`} onClick={toggleModal}>Dátum hozzáadása</button>
-    <ValidForNewMarriage hiddenStatus={hiddenStatusForValidator} validityStatus={isValid}/>
+    <ValidForNewMarriage hiddenStatus={hiddenStatusForValidator} validityStatus={isValidForMarriageDiscount}/>
     <div id="default-modal" tabIndex="-1" aria-hidden="true" className={`${modalOpen ? "" : "hidden"} fixed inset-0 z-50 overflow-y-auto flex justify-center items-center backdrop-filter backdrop-blur-md`}>
         <div className="relative p-4 w-full max-w-xl max-h-full">
             

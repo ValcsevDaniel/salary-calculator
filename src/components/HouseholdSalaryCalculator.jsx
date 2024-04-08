@@ -21,7 +21,7 @@ const HouseholdSalaryCalculator = () => {
   const [checkedFamilyDiscount, setCheckedFamilyDiscount] = useState(false);
   const [numberOfDependants, setNumberOfDependants] = useState(0);
   const [numberOfDiscountedDependants, setNumberOfDiscountedDependants] = useState(0);
-
+  const [isValidForMarriageDiscount, setIsValidForMarriageDiscount] = useState(false);
   const calculateTax = (basePay) =>{
     let tax = basePay * 0.185;
     if(!checked25Under){
@@ -36,7 +36,7 @@ const HouseholdSalaryCalculator = () => {
         tax = 0;
       }
     }
-    if(checkedNewlyMarried){
+    if(checkedNewlyMarried && isValidForMarriageDiscount){
       if(tax > 5000){
         tax -= 5000
       }else{
@@ -66,7 +66,7 @@ const HouseholdSalaryCalculator = () => {
     const newNetValue = Math.round(selectedMemberPay - calculateTax(selectedMemberPay));
     setNetValue(Math.round(selectedMemberPay - calculateTax(selectedMemberPay)));
     
-  }, [checked25Under,checkedNewlyMarried,checkedIncomeTaxDiscount,checkedFamilyDiscount,selectedMemberPay])
+  }, [checked25Under,checkedNewlyMarried,checkedIncomeTaxDiscount,checkedFamilyDiscount,selectedMemberPay,isValidForMarriageDiscount,numberOfDependants,numberOfDiscountedDependants])
   const updateIncome = (id, basePay, value) => {
     // Find the member with the given name in the initial family members array
     const updatedMembers = familyMemberPay.map(member => {
@@ -111,6 +111,8 @@ const HouseholdSalaryCalculator = () => {
          numberOfDiscountedDependants={numberOfDiscountedDependants}
          setNumberOfDependants={setNumberOfDependants}
          setNumberOfDiscountedDependants={setNumberOfDiscountedDependants}
+         isValidForMarriageDiscount={isValidForMarriageDiscount}
+         setIsValidForMarriageDiscount={setIsValidForMarriageDiscount}
          />
          </div>
          <div className="w-full lg:w-1/2 s:mt-5 flex justify-center" >
